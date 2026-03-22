@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Anuar Science</title>
@@ -9,59 +9,154 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow-x: hidden;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-image: url('FondoPantalla2.png');
+            background-image: url("FondoPantalla2.png");
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .contenedor {
-            background: rgba(255, 255, 255, 0.85);
-            margin: 40px auto;
-            padding: 30px;
-            width: 80%;
-            border-radius: 10px;
+            width: 90vw;
+            height: 85vh;
+            background: rgba(255, 255, 255, 0.80);
+            border: 2px solid red;
+            border-radius: 12px;
+            box-sizing: border-box;
+            padding: 20px;
+
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 25px;
+
+            overflow: hidden;
+        }
+
+        .col-izquierda {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
         }
 
         .foto {
-            width: 180px;
-            height: 180px;
+            width: 170px;
+            height: 170px;
             object-fit: cover;
             border-radius: 50%;
             display: block;
-            margin: 20px auto;
+            margin-bottom: 18px;
+            border: 2px solid rgba(0,0,0,0.15);
+        }
+
+        .nombre {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            line-height: 1.1;
+        }
+
+        .descripcion {
+            margin: 0 0 18px 0;
+            font-size: 0.98rem;
+            line-height: 1.4;
+        }
+
+        .col-derecha {
+            overflow: auto;
+            padding-right: 8px;
+        }
+
+        h2 {
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        a {
+            color: #0b57d0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contacto {
+            margin-top: 18px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .contenedor {
+                grid-template-columns: 1fr;
+                width: 95vw;
+                height: 90vh;
+            }
+
+            .col-izquierda {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .foto {
+                width: 130px;
+                height: 130px;
+            }
+
+            .nombre {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="contenedor">
-        <h1>Anuar González</h1>
+        <div class="col-izquierda">
+            <img src="FotoAnuar.jpg" alt="Foto de Anuar" class="foto">
+        </div>
 
-        <img src="https://anuar-science.github.io/FotoAnuar.jpg" alt="Foto de Anuar" class="foto">
+        <div class="col-derecha">
+            <h1 class="nombre">Anuar González</h1>
 
-        <p>Plataforma de matemáticas, ingeniería estructural, auditoría y normatividad.</p>
+            <p class="descripcion">
+                Plataforma de matemáticas, ingeniería estructural, auditoría y normatividad.
+            </p>
 
-        <h2>Publicaciones</h2>
-        <ul>
-            <li><a href="#">Tesis (próximamente)</a></li>
-            <li><a href="#">Libros (próximamente)</a></li>
-        </ul>
+            <h2>Publicaciones</h2>
+            <ul>
+                <li><a href="#">Tesis (próximamente)</a></li>
+                <li><a href="#">Libros (próximamente)</a></li>
+            </ul>
 
-        <h2>Áreas</h2>
-        <ul>
-            <li>Matemáticas aplicadas</li>
-            <li>Ingeniería estructural</li>
-            <li>Auditoría de proyectos</li>
-            <li>Normatividad</li>
-        </ul>
+            <h2>Áreas</h2>
+            <ul>
+                <li>Matemáticas aplicadas</li>
+                <li>Ingeniería estructural</li>
+                <li>Auditoría de proyectos</li>
+                <li>Normatividad</li>
+            </ul>
 
-        <p>Contacto: próximamente</p>
+            <p class="contacto">Contacto: próximamente</p>
+        </div>
     </div>
 </body>
 </html>
