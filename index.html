@@ -104,14 +104,23 @@
             font-size: 0.95rem;
         }
 
-        .book-info p,
-.book-info a {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  color: inherit;
-  margin: 0 0 10px 0;
+        .book-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.book-info,
+.book-info p,
+.book-info a,
+.book-info li {
+  font-size: small;
+}
+
+.book-info h3,
+.book-info h4,
+.book-info p {
+  font-weight: normal;
+  margin: 0 0 8px 0;
 }
 
         @media (max-width: 900px) {
