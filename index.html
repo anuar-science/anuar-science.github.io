@@ -145,8 +145,33 @@
                 font-size: 1.6rem;
             }
         }
+
+#boton-musica {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+#boton-musica:hover {
+  background: rgba(30, 30, 30, 0.9);
+}
+
+        
     </style>
 </head>
+
+   
 <body>
     <div class="contenedor">
         <div class="col-izquierda">
@@ -260,5 +285,48 @@
             <p>Contacto: <a href="https://wa.me/593990903329" target="_blank">+593990903329</a></p>
         </div>
     </div>
+
+  <!-- Música de fondo: Chopin - Nocturne in C-sharp minor -->
+  <audio id="musica-fondo" loop preload="auto">
+    <source src="assets/audio/chopin-nocturne-c-sharp-minor.mp3" type="audio/mpeg">
+      
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <button id="boton-musica" type="button">
+    🎹 Activar música
+  </button>
+
+  <script>
+    const musicaFondo = document.getElementById("musica-fondo");
+    const botonMusica = document.getElementById("boton-musica");
+
+    musicaFondo.volume = 0.30;
+
+    function reproducirMusica() {
+      musicaFondo.play()
+        .then(() => {
+          botonMusica.textContent = "⏸ Pausar música";
+        })
+        .catch(() => {
+          botonMusica.textContent = "🎹 Activar música";
+        });
+    }
+
+    function pausarMusica() {
+      musicaFondo.pause();
+      botonMusica.textContent = "🎹 Activar música";
+    }
+
+    botonMusica.addEventListener("click", () => {
+      if (musicaFondo.paused) {
+        reproducirMusica();
+      } else {
+        pausarMusica();
+      }
+    });
+  </script>
+
+
 </body>
 </html>
