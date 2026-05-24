@@ -296,35 +296,28 @@
   🎹 Escuchar Música
 </button>
 
-  <script>
-    const musicaFondo = document.getElementById("musica-fondo");
-    const botonMusica = document.getElementById("boton-musica");
+<script>
+  const musicaFondo = document.getElementById("musica-fondo");
+  const botonMusica = document.getElementById("boton-musica");
 
-    musicaFondo.volume = 0.30;
+  musicaFondo.volume = 0.30;
 
-    function reproducirMusica() {
+  botonMusica.addEventListener("click", () => {
+    if (musicaFondo.paused) {
       musicaFondo.play()
         .then(() => {
-          botonMusica.textContent = "⏸ Pausar música";
+          botonMusica.textContent = "⏸ Pausar Música";
         })
-        .catch(() => {
-          botonMusica.textContent = "🎹 Activar música";
+        .catch((error) => {
+          console.error("No se pudo reproducir la música:", error);
+          botonMusica.textContent = "🎹 Escuchar Música";
         });
-    }
-
-    function pausarMusica() {
+    } else {
       musicaFondo.pause();
-      botonMusica.textContent = "🎹 Activar música";
+      botonMusica.textContent = "🎹 Escuchar Música";
     }
-
-    botonMusica.addEventListener("click", () => {
-      if (musicaFondo.paused) {
-        reproducirMusica();
-      } else {
-        pausarMusica();
-      }
-    });
-  </script>
+  });
+</script>
 
 
 </body>
