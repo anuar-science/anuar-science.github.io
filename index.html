@@ -287,37 +287,30 @@
     </div>
 
   <!-- Música de fondo: Chopin - Ballade No. 1 in G minor, Op. 23 -->
-<audio id="musica-fondo" loop preload="auto">
-  <source src="assets/chopin-ballade-no-1-g-minor-op-23.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio HTML5.
-</audio>
+<audio id="musica-fondo" src="/assets/chopin-ballade-no-1-g-minor-op-23.mp3" loop preload="auto"></audio>
 
-<button id="boton-musica" type="button">
+<button id="boton-musica" type="button" onclick="
+  const audio = document.getElementById('musica-fondo');
+  const boton = this;
+
+  audio.volume = 0.30;
+
+  if (audio.paused) {
+    audio.play()
+      .then(() => {
+        boton.textContent = '⏸ Pausar Música';
+      })
+      .catch((error) => {
+        console.error('No se pudo reproducir el audio:', error);
+        alert('No se pudo reproducir el audio. Revisa permisos del navegador o consola.');
+      });
+  } else {
+    audio.pause();
+    boton.textContent = '🎹 Escuchar Música';
+  }
+">
   🎹 Escuchar Música
 </button>
-
-<script>
-  const musicaFondo = document.getElementById("musica-fondo");
-  const botonMusica = document.getElementById("boton-musica");
-
-  musicaFondo.volume = 0.30;
-
-  botonMusica.addEventListener("click", () => {
-    if (musicaFondo.paused) {
-      musicaFondo.play()
-        .then(() => {
-          botonMusica.textContent = "⏸ Pausar Música";
-        })
-        .catch((error) => {
-          console.error("No se pudo reproducir la música:", error);
-          botonMusica.textContent = "🎹 Escuchar Música";
-        });
-    } else {
-      musicaFondo.pause();
-      botonMusica.textContent = "🎹 Escuchar Música";
-    }
-  });
-</script>
 
 </body>
 </html>
