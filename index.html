@@ -16,27 +16,12 @@
       --gris-borde: #d9dee7;
       --texto: #1c2433;
       --sombra: 0 8px 22px rgba(0,0,0,0.12);
-
-      /*
-        Archivos requeridos en la raíz del repositorio GitHub:
-        index.html
-        Puente.png
-        FotoAnuar.jpg
-        BIOGRAFIA_DR_GONZALEZ.pdf
-
-        Audio:
-        assets/chopin-ballade-no-1-g-minor-op-23.mp3
-      */
       --hero-image: url("./Puente.png");
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -51,13 +36,8 @@
       font-weight: 600;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
-    /* =========================================================
-       Barra superior
-       ========================================================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -133,9 +113,6 @@
       border-radius: 4px 4px 0 0;
     }
 
-    /* =========================================================
-       Encabezado principal: Puente.png + átomo + foto
-       ========================================================= */
     .hero {
       position: relative;
       min-height: 315px;
@@ -156,11 +133,6 @@
       pointer-events: none;
     }
 
-    /*
-      Átomo adicional en CSS.
-      Puente.png ya incluye un átomo, pero este refuerzo asegura que el motivo científico
-      aparezca aun si el recorte del fondo lo desplaza según el tamaño de pantalla.
-    */
     .hero::after {
       content: "⚛";
       position: absolute;
@@ -187,32 +159,7 @@
       color: #fff;
     }
 
-
-
-  .hero-inner > div {
-  text-align: center;
-}
-
-.tagline,
-.intro,
-.hero-note {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero h1 {
-  margin-left: auto;
-  margin-right: auto;
-  transform: translateX(-42px);
-}
-
-.hero-note {
-  justify-content: center;
-}
-
-
-
-    
+    .hero-inner > div { text-align: center; }
 
     .foto-hero {
       width: 176px;
@@ -226,15 +173,16 @@
     }
 
     .hero h1 {
-      margin: 0 0 8px;
+      margin: 0 auto 8px auto;
       font-size: clamp(2.6rem, 5vw, 4.6rem);
       line-height: 0.95;
       color: #ffffff;
       text-shadow: 0 3px 18px rgba(0,0,0,0.42);
+      transform: translateX(-42px);
     }
 
     .tagline {
-      margin: 0 0 16px;
+      margin: 0 auto 16px auto;
       font-family: Arial, sans-serif;
       font-size: 1.02rem;
       font-weight: 700;
@@ -246,7 +194,7 @@
     }
 
     .intro {
-      margin: 0;
+      margin: 0 auto;
       max-width: 760px;
       color: #eef6ff;
       font-family: Arial, sans-serif;
@@ -258,8 +206,9 @@
     .hero-note {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 12px;
-      margin-top: 20px;
+      margin: 20px auto 0 auto;
       padding-top: 14px;
       border-top: 1px solid rgba(255,255,255,0.35);
       color: #e7f0fa;
@@ -280,9 +229,6 @@
       flex: 0 0 28px;
     }
 
-    /* =========================================================
-       Cuerpo principal
-       ========================================================= */
     .page {
       max-width: 1260px;
       margin: 0 auto;
@@ -298,7 +244,7 @@
     }
 
     .cards-grid.two {
-      grid-template-columns: 1fr 1.85fr;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .card,
@@ -311,9 +257,7 @@
       overflow: hidden;
     }
 
-    .wide-card {
-      margin-bottom: 18px;
-    }
+    .wide-card { margin-bottom: 18px; }
 
     .card h2,
     .wide-card h2 {
@@ -415,9 +359,7 @@
       text-align: left;
     }
 
-    .area-item:last-child {
-      border-right: none;
-    }
+    .area-item:last-child { border-right: none; }
 
     .area-icon {
       font-size: 1.9rem;
@@ -482,40 +424,28 @@
         text-align: center;
       }
 
-      .hero-note {
-        justify-content: center;
-      }
+      .hero h1 { transform: none; }
 
-      .nav {
-        display: none;
-      }
+      .hero-note { justify-content: center; }
+
+      .nav { display: none; }
 
       .area-item {
         border-right: none;
         border-bottom: 1px solid var(--gris-borde);
       }
 
-      .area-item:last-child {
-        border-bottom: none;
-      }
+      .area-item:last-child { border-bottom: none; }
     }
 
     @media (max-width: 650px) {
-      .topbar {
-        padding: 0 18px;
-      }
+      .topbar { padding: 0 18px; }
 
-      .brand-name {
-        display: none;
-      }
+      .brand-name { display: none; }
 
-      .hero-inner {
-        padding: 34px 22px;
-      }
+      .hero-inner { padding: 34px 22px; }
 
-      .page {
-        padding: 18px 14px 0;
-      }
+      .page { padding: 18px 14px 0; }
 
       .foto-hero {
         width: 140px;
@@ -538,15 +468,15 @@
     <div class="brand">
       <div class="brand-mark">⚛</div>
       <div class="brand-initials">AG</div>
-      <div class="brand-name">Anuar González A</div>
+      <div class="brand-name">Anuar González</div>
     </div>
 
     <nav class="nav" aria-label="Navegación principal">
       <a href="#inicio">⌂ Inicio</a>
       <a href="#publicaciones">▣ Publicaciones</a>
-      <a href="#public-management">▤ Public Management</a>
       <a href="#recursos">📖 Recursos</a>
       <a href="#normatividad">▤ Normatividad</a>
+      <a href="#public-management">▤ Public Management</a>
       <a href="#areas">✧ Áreas</a>
       <a href="#contacto">✉ Contacto</a>
     </nav>
@@ -574,7 +504,7 @@
 
         <div class="hero-note">
           <span class="info-icon">i</span>
-          <span>Este sitio es académico y documental.</span>
+          <span>Este sitio es académico y documental. No constituye una plataforma comercial.</span>
         </div>
       </div>
     </div>
@@ -582,81 +512,79 @@
 
   <main class="page">
 
+    <!-- Fila 1: contenidos técnicos principales -->
     <section id="publicaciones" class="cards-grid">
 
-  <article class="card">
-    <h2><span class="icon">▣</span>Publicaciones técnicas</h2>
+      <article class="card">
+        <h2><span class="icon">▣</span>Publicaciones técnicas</h2>
 
-    <ul>
-      <li><strong>Artículos y reportes técnicos</strong></li>
+        <ul>
+          <li><strong>Artículos y reportes técnicos</strong></li>
 
-      <li>
-        <a href="https://ve.scielo.org/scielo.php?script=sci_arttext&pid=S0376-723X2006000200003" target="_blank" rel="noopener noreferrer">
-          Evaluación rápida de la deriva máxima de piso en edificios sin muros de corte
-        </a>
-        <small>Artículo en coautoría con el Dr. Aguiar.</small>
-      </li>
+          <li>
+            <a href="https://ve.scielo.org/scielo.php?script=sci_arttext&pid=S0376-723X2006000200003" target="_blank" rel="noopener noreferrer">
+              Evaluación rápida de la deriva máxima de piso en edificios sin muros de corte
+            </a>
+            <small>Artículo en coautoría con el Dr. Aguiar.</small>
+          </li>
 
-      <li>
-        <a href="https://www.researchgate.net/profile/Roberto-Aguiar/publication/237642204_SOBRE_RESISTENCIA_GLOBAL_EN_FUNCION_DE_LA_DERIVA_MAXIMA_DE_PISO" target="_blank" rel="noopener noreferrer">
-          Sobre resistencia global en función de la Deriva Máxima de Piso
-        </a>
-        <small>
-          Autor: Dr. Roberto Aguiar. Este documento cita mi trabajo presentado como expositor en el II Congreso de Ingeniería ICG - Perú, y se incluye aquí como trabajo relacionado.
-        </small>
-      </li>
+          <li>
+            <a href="https://www.researchgate.net/profile/Roberto-Aguiar/publication/237642204_SOBRE_RESISTENCIA_GLOBAL_EN_FUNCION_DE_LA_DERIVA_MAXIMA_DE_PISO" target="_blank" rel="noopener noreferrer">
+              Sobre resistencia global en función de la Deriva Máxima de Piso
+            </a>
+            <small>
+              Autor: Dr. Roberto Aguiar. Este documento cita mi trabajo presentado como expositor en el II Congreso de Ingeniería ICG - Perú, y se incluye aquí como trabajo relacionado.
+            </small>
+          </li>
 
-      <li>
-        <a href="https://doi.org/10.5281/zenodo.20432499" target="_blank" rel="noopener noreferrer">
-          Fundamentos matemáticos para ingeniería: números reales, recta numérica e inecuaciones lineales, con valor absoluto y racionales
-        </a>
-        <small>
-          Reporte técnico publicado en Zenodo. DOI: 10.5281/zenodo.20432499. Incluye versión en español e inglés.
-        </small>
-      </li>
-    </ul>
-  </article>
+          <li>
+            <a href="https://doi.org/10.5281/zenodo.20432499" target="_blank" rel="noopener noreferrer">
+              Fundamentos matemáticos para ingeniería: números reales, recta numérica e inecuaciones lineales, con valor absoluto y racionales
+            </a>
+            <small>Reporte técnico publicado en Zenodo. DOI: 10.5281/zenodo.20432499. Incluye versión en español e inglés.</small>
+          </li>
+        </ul>
+      </article>
 
-  <article id="public-management" class="card">
-    <h2><span class="icon">▤</span>Public Management</h2>
+      <article class="card">
+        <h2><span class="icon">▤</span>Software académico</h2>
 
-    <ul>
-      <li>
-        <strong>Title_1</strong>
-        <small>
-          Descripción
-        </small>
-      </li>
+        <ul>
+          <li>
+            <a href="https://doi.org/10.5281/zenodo.20042213" target="_blank" rel="noopener noreferrer">
+              Computational implementation of the stiffness method for the matrix analysis of a plane truss
+            </a>
+            <small>Implementación computacional en Jupyter Notebook del método de rigidez para el análisis matricial de una cercha plana.</small>
+            <small>Publicado en Zenodo con DOI: 10.5281/zenodo.20042213.</small>
+          </li>
+        </ul>
+      </article>
 
-     </ul>
-  
-  
-  </article>
+      <article class="card">
+        <h2><span class="icon">◆</span>Tesis / Repositorio institucional</h2>
 
-  <article class="card">
-    <h2><span class="icon">◆</span>Tesis / Repositorio institucional</h2>
-
-    <ul>
-      <li>
-        <a href="http://www.dspace.espol.edu.ec/handle/123456789/68446" target="_blank" rel="noopener noreferrer">
-          Reforzamiento de nudos exteriores viga-columna de estructuras de concreto armado mediante aleación con memoria de forma
-        </a>
-        <small>
-          Tesis de maestría disponible en el repositorio institucional DSpace ESPOL. El acceso y descarga del documento se realiza desde la fuente oficial.
-        </small>
-      </li>
-    </ul>
-  </article>
+        <ul>
+          <li>
+            <a href="http://www.dspace.espol.edu.ec/handle/123456789/68446" target="_blank" rel="noopener noreferrer">
+              Reforzamiento de nudos exteriores viga-columna de estructuras de concreto armado mediante aleación con memoria de forma
+            </a>
+            <small>
+              Tesis de maestría disponible en el repositorio institucional DSpace ESPOL. El acceso y descarga del documento se realiza desde la fuente oficial.
+            </small>
+          </li>
+        </ul>
+      </article>
 
     </section>
 
- <section id="recursos" class="cards-grid">
+    <!-- Fila 2: recursos complementarios -->
+    <section id="recursos" class="cards-grid two">
 
       <article class="card">
         <h2><span class="icon">▰</span>Libros</h2>
 
         <ul>
-          <li><strong>Biografía del Dr. Jacinto Alejandro González Vintimilla</strong></li>
+          <li><strong>Biografía del Dr. Jacinto González Vintimilla</strong></li>
         </ul>
 
         <small>Obra escrita por Anuar González y varios coautores, como homenaje biográfico y memoria familiar.</small>
@@ -671,7 +599,7 @@
         <a class="ver-mas" href="mailto:estudiante2000@hotmail.com?subject=Consulta%20sobre%20la%20biograf%C3%ADa">Solicitar información</a>
       </article>
 
-      <article id="normatividad" class="wide-card">
+      <article id="normatividad" class="card">
         <h2><span class="icon">⚖</span>Normatividad</h2>
 
         <div class="normas-grid">
@@ -716,6 +644,29 @@
 
     </section>
 
+    <!-- Fila 3: Public Management abajo, como línea complementaria -->
+    <section id="public-management" class="wide-card">
+      <h2><span class="icon">▤</span>Public Management</h2>
+
+      <ul>
+        <li>
+          <strong>Executive Turnover and Public Policy Discontinuity</strong>
+          <small>
+            Línea de análisis documental sobre rotación directiva, continuidad institucional,
+            memoria organizacional y sostenibilidad de políticas públicas.
+          </small>
+        </li>
+
+        <li>
+          <strong>Recursos documentales complementarios</strong>
+          <small>
+            Espacio reservado para futuras notas técnicas, artículos o referencias académicas vinculadas
+            con gestión institucional, administración pública y análisis normativo general.
+          </small>
+        </li>
+      </ul>
+    </section>
+
     <section id="areas" class="wide-card">
       <h2><span class="icon">▥</span>Áreas</h2>
 
@@ -755,7 +706,7 @@
       audio.pause();
       boton.textContent = '🎹 Escuchar Música';
     }
-  ">🎹 Música</button>
+  ">🎹 Escuchar Música</button>
 
 </body>
 </html>
