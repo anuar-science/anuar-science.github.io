@@ -1,364 +1,729 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Anuar Science</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
+  <title>Anuar Science</title>
 
-     body {
-    background-image: url("FondoPantalla2.png");
-    background-size: 100% 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #000;
+  <style>
+    :root {
+      --azul-1: #03152f;
+      --azul-2: #082a55;
+      --azul-3: #0b57d0;
+      --vino: #8b1735;
+      --vino-2: #b12b4a;
+      --gris-borde: #d9dee7;
+      --texto: #1c2433;
+      --sombra: 0 8px 22px rgba(0,0,0,0.12);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-        .contenedor {
-            width: 90vw;
-            height: 85vh;
-            background: rgba(255, 255, 255, 0.80);
-            border: 2px solid red;
-            border-radius: 12px;
-            box-sizing: border-box;
-            padding: 20px;
+      /*
+        Archivos requeridos en la raíz del repositorio GitHub:
+        index.html
+        Puente.png
+        FotoAnuar.jpg
+        BIOGRAFIA_DR_GONZALEZ.pdf
 
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 25px;
+        Audio:
+        assets/chopin-ballade-no-1-g-minor-op-23.mp3
+      */
+      --hero-image: url("./Puente.png");
+    }
 
-            overflow: hidden;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .col-izquierda {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .foto {
-            width: 170px;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 50%;
-            display: block;
-            margin-bottom: 18px;
-            border: 2px solid rgba(0,0,0,0.15);
-        }
+    body {
+      margin: 0;
+      font-family: "Times New Roman", Georgia, serif;
+      color: var(--texto);
+      background: #eef2f7;
+    }
 
-        .nombre {
-            margin: 0 0 10px 0;
-            font-size: 2rem;
-            line-height: 1.1;
-        }
+    a {
+      color: var(--azul-3);
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-        .descripcion {
-            margin: 0 0 18px 0;
-            font-size: 0.98rem;
-            line-height: 1.4;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        .col-derecha {
-            overflow: auto;
-            padding-right: 8px;
-        }
+    /* =========================================================
+       Barra superior
+       ========================================================= */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 34px;
+      background: linear-gradient(90deg, var(--azul-1) 0%, var(--azul-2) 58%, #061b38 100%);
+      border-bottom: 2px solid rgba(177, 43, 74, 0.90);
+      box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+      color: #fff;
+    }
 
-        h2 {
-            margin-top: 18px;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
 
-        ul {
-            margin-top: 0;
-            padding-left: 20px;
-        }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #d8e8ff;
+      font-size: 18px;
+      flex: 0 0 42px;
+    }
 
-        li {
-            margin-bottom: 6px;
-        }
+    .brand-initials {
+      font-size: 1.45rem;
+      font-weight: 700;
+      padding-right: 14px;
+      border-right: 1px solid rgba(255,255,255,0.35);
+      white-space: nowrap;
+    }
 
-        a {
-            color: #0b57d0;
-            text-decoration: none;
-        }
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    .nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.93rem;
+      white-space: nowrap;
+    }
 
-        .contacto {
-            margin-top: 18px;
-            font-size: 0.95rem;
-        }
+    .nav a {
+      color: #eef5ff;
+      font-weight: 500;
+      position: relative;
+      padding: 20px 0 17px;
+    }
 
-        .book-info {
-  flex: 1;
-  min-width: 260px;
-}
+    .nav a:first-child::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: var(--vino-2);
+      border-radius: 4px 4px 0 0;
+    }
 
-.book-info,
-.book-info p,
-.book-info a,
-.book-info li {
-  font-size: small;
-}
+    /* =========================================================
+       Encabezado principal: Puente.png + átomo + foto
+       ========================================================= */
+    .hero {
+      position: relative;
+      min-height: 315px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(3,21,47,0.86) 0%, rgba(5,36,74,0.72) 48%, rgba(3,21,47,0.58) 100%),
+        var(--hero-image) center center / cover no-repeat;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 
-.book-info h3,
-.book-info h4,
-.book-info p {
-  font-weight: normal;
-  margin: 0 0 8px 0;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 82% 36%, rgba(22, 91, 160, 0.05), transparent 28%),
+        linear-gradient(90deg, rgba(3,21,47,0.32) 0%, rgba(3,21,47,0.18) 42%, rgba(139,23,53,0.08) 100%);
+      pointer-events: none;
+    }
 
-        @media (max-width: 900px) {
-            .contenedor {
-                grid-template-columns: 1fr;
-                width: 95vw;
-                height: 90vh;
-            }
+    /*
+      Átomo adicional en CSS.
+      Puente.png ya incluye un átomo, pero este refuerzo asegura que el motivo científico
+      aparezca aun si el recorte del fondo lo desplaza según el tamaño de pantalla.
+    */
+    .hero::after {
+      content: "⚛";
+      position: absolute;
+      right: 56px;
+      top: 34px;
+      font-size: 9.5rem;
+      line-height: 1;
+      color: rgba(225, 240, 255, 0.30);
+      text-shadow: 0 0 22px rgba(152, 205, 255, 0.24);
+      pointer-events: none;
+      z-index: 1;
+    }
 
-            .col-izquierda {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1260px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 34px;
+      align-items: center;
+      padding: 46px 46px 40px;
+      color: #fff;
+    }
 
-            .foto {
-                width: 130px;
-                height: 130px;
-            }
+    .foto-hero {
+      width: 176px;
+      height: 176px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.92);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.38);
+      justify-self: center;
+      background: #fff;
+    }
 
-            .nombre {
-                font-size: 1.6rem;
-            }
-        }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      color: #ffffff;
+      text-shadow: 0 3px 18px rgba(0,0,0,0.42);
+    }
 
-#boton-musica {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 9999;
-  padding: 10px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 25px;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-  font-size: 14px;
-  font-family: Arial, sans-serif;
-  cursor: pointer;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-}
+    .tagline {
+      margin: 0 0 16px;
+      font-family: Arial, sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      color: #ff94a9;
+      text-transform: uppercase;
+      max-width: 760px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.40);
+    }
 
-#boton-musica:hover {
-  background: rgba(30, 30, 30, 0.9);
-}
+    .intro {
+      margin: 0;
+      max-width: 760px;
+      color: #eef6ff;
+      font-family: Arial, sans-serif;
+      font-size: 1.06rem;
+      line-height: 1.55;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.42);
+    }
 
-        
-    </style>
+    .hero-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.35);
+      color: #e7f0fa;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    .info-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #ff94a9;
+      color: #ff94a9;
+      display: inline-grid;
+      place-items: center;
+      font-weight: 700;
+      flex: 0 0 28px;
+    }
+
+    /* =========================================================
+       Cuerpo principal
+       ========================================================= */
+    .page {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 20px 34px 0;
+      background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .cards-grid.two {
+      grid-template-columns: 1fr 1.85fr;
+    }
+
+    .card,
+    .wide-card {
+      background: #fff;
+      border: 1px solid var(--gris-borde);
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: var(--sombra);
+      overflow: hidden;
+    }
+
+    .wide-card {
+      margin-bottom: 18px;
+    }
+
+    .card h2,
+    .wide-card h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: -18px -20px 16px -20px;
+      padding: 14px 18px;
+      color: #ffffff;
+      font-size: 1.42rem;
+      line-height: 1.15;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+      background:
+        linear-gradient(90deg, rgba(3,21,47,0.64) 0%, rgba(8,42,85,0.50) 48%, rgba(139,23,53,0.42) 100%),
+        var(--hero-image) center center / cover no-repeat;
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.10);
+      text-shadow: 0 2px 7px rgba(0,0,0,0.45);
+    }
+
+    .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 38px;
+      background: rgba(139,23,53,0.92);
+      color: #fff;
+      font-size: 1.08rem;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .card ul,
+    .wide-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .card li,
+    .wide-card li {
+      margin-bottom: 9px;
+      line-height: 1.35;
+    }
+
+    .card small,
+    .wide-card small {
+      display: block;
+      color: #263346;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      font-family: Arial, sans-serif;
+      margin-top: 2px;
+    }
+
+    .ver-mas {
+      display: inline-block;
+      margin-top: 10px;
+      margin-right: 12px;
+      color: var(--azul-3);
+      font-weight: 700;
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .normas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .subtitulo {
+      color: var(--texto);
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .areas {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .area-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 74px;
+      padding: 12px 10px;
+      border-right: 1px solid var(--gris-borde);
+      color: var(--azul-1);
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .area-item:last-child {
+      border-right: none;
+    }
+
+    .area-icon {
+      font-size: 1.9rem;
+      color: var(--azul-2);
+    }
+
+    footer {
+      max-width: 1260px;
+      margin: 0 auto 28px;
+      min-height: 78px;
+      background: linear-gradient(90deg, var(--azul-1) 0%, var(--azul-2) 100%);
+      color: #dce9fa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      border-radius: 0 0 10px 10px;
+      font-family: Arial, sans-serif;
+      box-shadow: var(--sombra);
+    }
+
+    .footer-center {
+      font-size: 0.98rem;
+      color: #eef5ff;
+    }
+
+    .volver-arriba {
+      color: #fff;
+      background: var(--vino);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+    }
+
+    #boton-musica {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 9999;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 25px;
+      background: rgba(0,0,0,0.72);
+      color: #fff;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    }
+
+    @media (max-width: 1080px) {
+      .cards-grid,
+      .cards-grid.two,
+      .normas-grid,
+      .areas {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-note {
+        justify-content: center;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .area-item {
+        border-right: none;
+        border-bottom: 1px solid var(--gris-borde);
+      }
+
+      .area-item:last-child {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        padding: 0 18px;
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .hero-inner {
+        padding: 34px 22px;
+      }
+
+      .page {
+        padding: 18px 14px 0;
+      }
+
+      .foto-hero {
+        width: 140px;
+        height: 140px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
 
-   
-<body>
-    <div class="contenedor">
-        <div class="col-izquierda">
-            <img src="FotoAnuar.jpg" alt="Foto de Anuar" class="foto">
-        </div>
+<body id="inicio">
 
-        <div class="col-derecha">
-            <h1 class="nombre">Anuar González</h1>
-
-            <p>Plataforma de matemáticas, ingeniería estructural, auditoría y normatividad.</p>
-
-            <p class="filosofia">
-           Este espacio tiene como propósito la difusión y el análisis riguroso de conocimiento en ingeniería estructural y ciencias aplicadas. Aunque no constituye una plataforma comercial, está abierto a colaboraciones académicas y profesionales.
-            </p>
-           
-        <h2>Publicaciones y recursos externos</h2>
-
-<ul class="lista-recursos">
-
-  <li><strong>Artículos</strong>
-    <ul>
-      <li>
-        <a href="https://ve.scielo.org/scielo.php?script=sci_arttext&pid=S0376-723X2006000200003" target="_blank" rel="noopener noreferrer">
-          Evaluación rápida de la deriva máxima de piso en edificios sin muros de corte
-        </a><br>
-        <small>Artículo en coautoría con el Dr. Aguiar.</small>
-      </li>
-
-      <li>
-        <a href="https://www.researchgate.net/profile/Roberto-Aguiar/publication/237642204_SOBRE_RESISTENCIA_GLOBAL_EN_FUNCION_DE_LA_DERIVA_MAXIMA_DE_PISO" target="_blank" rel="noopener noreferrer">
-          Sobre resistencia global en función de la Deriva Máxima de Piso
-        </a><br>
-        <small>
-          Autor: Dr. Roberto Aguiar. Este documento cita mi trabajo presentado como expositor en el II Congreso de Ingeniería ICG - Perú, y se incluye aquí como trabajo relacionado.
-        </small>
-      </li>
-
-      <li>
-        <a href="https://doi.org/10.5281/zenodo.20432499" target="_blank" rel="noopener noreferrer">
-          Fundamentos matemáticos para ingeniería: números reales, recta numérica e inecuaciones lineales, con valor absoluto y racionales
-        </a><br>
-        <small>
-          Reporte técnico publicado en Zenodo. DOI: 10.5281/zenodo.20432499. Incluye versión en español e inglés.
-        </small>
-      </li>
-    </ul>
-  </li>
-
-  <li><strong>Tesis / Repositorio institucional</strong>
-    <ul>
-      <li>
-        <a href="http://www.dspace.espol.edu.ec/handle/123456789/68446" target="_blank" rel="noopener noreferrer">
-          Reforzamiento de nudos exteriores viga-columna de estructuras de concreto armado mediante aleación con memoria de forma
-        </a><br>
-        <small>
-          Tesis de maestría disponible en el repositorio institucional DSpace ESPOL. El acceso y descarga del documento se realiza desde la fuente oficial.
-        </small>
-      </li>
-    </ul>
-  </li>
-
-  <li><strong>Software académico</strong>
-    <ul>
-      <li>
-        <a href="https://doi.org/10.5281/zenodo.20042213" target="_blank" rel="noopener noreferrer">
-          Computational implementation of the stiffness method for the matrix analysis of a plane truss
-        </a><br>
-        <small>
-          Implementación computacional en Jupyter Notebook del método de rigidez para el análisis matricial de una cercha plana. Versión 1.0.0. Publicado en Zenodo con DOI: 10.5281/zenodo.20042213.
-        </small>
-      </li>
-    </ul>
-  </li>
-
-  <li><strong>Libros</strong>
-    <ul>
-      <li>
-        <div class="book-card">
-          <div class="book-info">
-            <p>Biografía del Dr. Jacinto González Vintimilla</p>
-            <p>Obra escrita por Anuar González y varios coautores, como homenaje biográfico y memoria familiar.</p>
-            <p>Edición privada de autor.</p>
-            <p>[2021]</p>
-
-            <p>Descripción breve:</p>
-            <p>
-              Este libro recoge la vida, trayectoria y legado del Dr. Jacinto González Vintimilla,
-              a partir de recuerdos, testimonios y documentos familiares.
-            </p>
-
-            <div class="book-buttons">
-              <a href="BIOGRAFIA_DR_GONZALEZ.pdf" target="_blank" class="btn">Ver libro</a>
-              <a href="mailto:estudiante2000@hotmail.com?subject=Consulta%20sobre%20la%20biograf%C3%ADa" class="btn">
-                Solicitar información
-              </a>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </li>
-
-<li><strong>Normatividad</strong>
-  <ul>
-
-    <li><strong>Normativa técnica</strong>
-      <ul>
-        <li>
-          <a href="https://www.mit.gob.ec/norma-ecuatoriana-de-la-construccion/" target="_blank" rel="noopener noreferrer">
-            Norma Ecuatoriana de la Construcción (NEC)
-          </a><br>
-          <small>
-            Enlace oficial a los capítulos de la NEC.
-          </small>
-        </li>
-
-        <li>
-          <a href="https://apps.normalizacion.gob.ec/descarga/index.php/buscar" target="_blank" rel="noopener noreferrer">
-            Servicio Ecuatoriano de Normalización (INEN) — Normas técnicas ecuatorianas oficializadas
-          </a><br>
-          <small>
-            Enlace oficial al catálogo y buscador de normas técnicas INEN.
-          </small>
-        </li>
-      </ul>
-    </li>
-
-    <li><strong>Normativa legal</strong><br>
-      <small>
-        Estas normas corresponden a documentos públicos y se los enlaza para referenciar su ubicación en las páginas oficiales correspondientes.
-      </small>
-      <ul>
-        <li>
-          <a href="https://portal.compraspublicas.gob.ec/sercop/anexos/" target="_blank" rel="noopener noreferrer">
-            SERCOP — Ley Orgánica del Sistema Nacional de Contratación Pública, reglamento y normativa relacionada
-          </a><br>
-          <small>
-            Enlace oficial del SERCOP a la normativa del Sistema Nacional de Contratación Pública.
-          </small>
-        </li>
-
-      
-      </ul>
-    </li>
-
-  </ul>
-</li>   
- 
-</ul>
-                       
-            <h2>Áreas</h2>
-            <ul>
-                <li>Matemáticas aplicadas</li>
-                <li>Ingeniería estructural</li>
-                <li>Auditoría de proyectos</li>
-                <li>Normatividad</li>
-            </ul>
-
-            <p>Contacto: <a href="https://wa.me/593990903329" target="_blank">+593990903329</a></p>
-        </div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">⚛</div>
+      <div class="brand-initials">AG</div>
+      <div class="brand-name">Anuar González</div>
     </div>
 
-  <!-- Música de fondo: Chopin - Ballade No. 1 in G minor, Op. 23 -->
-<audio id="musica-fondo" src="/assets/chopin-ballade-no-1-g-minor-op-23.mp3" loop preload="auto"></audio>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#inicio">⌂ Inicio</a>
+      <a href="#publicaciones">▣ Publicaciones</a>
+      <a href="#recursos">📖 Recursos</a>
+      <a href="#normatividad">▤ Normatividad</a>
+      <a href="#areas">✧ Áreas</a>
+      <a href="#contacto">✉ Contacto</a>
+    </nav>
+  </header>
 
-<button id="boton-musica" type="button" onclick="
-  const audio = document.getElementById('musica-fondo');
-  const boton = this;
+  <section class="hero">
+    <div class="hero-inner">
+      <img
+        src="./FotoAnuar.jpg"
+        alt="Foto de Anuar González"
+        class="foto-hero"
+      />
 
-  audio.volume = 0.30;
+      <div>
+        <h1>Anuar González</h1>
 
-  if (audio.paused) {
-    audio.play()
-      .then(() => {
+        <p class="tagline">
+          Plataforma de matemáticas, ingeniería estructural, auditoría y normatividad.
+        </p>
+
+        <p class="intro">
+          Este espacio tiene como propósito la difusión y el análisis riguroso de conocimiento
+          en ingeniería estructural y ciencias aplicadas.
+        </p>
+
+        <div class="hero-note">
+          <span class="info-icon">i</span>
+          <span>Este sitio es académico y documental. No constituye una plataforma comercial.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="page">
+
+    <section id="publicaciones" class="cards-grid">
+
+      <article class="card">
+        <h2><span class="icon">▣</span>Publicaciones y recursos externos</h2>
+
+        <ul>
+          <li><strong>Artículos</strong></li>
+
+          <li>
+            <a href="https://ve.scielo.org/scielo.php?script=sci_arttext&pid=S0376-723X2006000200003" target="_blank" rel="noopener noreferrer">
+              Evaluación rápida de la deriva máxima de piso en edificios sin muros de corte
+            </a>
+            <small>Artículo en coautoría con el Dr. Aguiar.</small>
+          </li>
+
+          <li>
+            <a href="https://www.researchgate.net/profile/Roberto-Aguiar/publication/237642204_SOBRE_RESISTENCIA_GLOBAL_EN_FUNCION_DE_LA_DERIVA_MAXIMA_DE_PISO" target="_blank" rel="noopener noreferrer">
+              Sobre resistencia global en función de la Deriva Máxima de Piso
+            </a>
+            <small>
+              Autor: Dr. Roberto Aguiar. Este documento cita mi trabajo presentado como expositor en el II Congreso de Ingeniería ICG - Perú, y se incluye aquí como trabajo relacionado.
+            </small>
+          </li>
+
+          <li>
+            <a href="https://doi.org/10.5281/zenodo.20432499" target="_blank" rel="noopener noreferrer">
+              Fundamentos matemáticos para ingeniería: números reales, recta numérica e inecuaciones lineales, con valor absoluto y racionales
+            </a>
+            <small>Reporte técnico publicado en Zenodo. DOI: 10.5281/zenodo.20432499. Incluye versión en español e inglés.</small>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2><span class="icon">◆</span>Tesis / Repositorio institucional</h2>
+
+        <ul>
+          <li>
+            <a href="http://www.dspace.espol.edu.ec/handle/123456789/68446" target="_blank" rel="noopener noreferrer">
+              Reforzamiento de nudos exteriores viga-columna de estructuras de concreto armado mediante aleación con memoria de forma
+            </a>
+            <small>
+              Tesis de maestría disponible en el repositorio institucional DSpace ESPOL. El acceso y descarga del documento se realiza desde la fuente oficial.
+            </small>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2><span class="icon">▤</span>Software académico</h2>
+
+        <ul>
+          <li>
+            <a href="https://doi.org/10.5281/zenodo.20042213" target="_blank" rel="noopener noreferrer">
+              Computational implementation of the stiffness method for the matrix analysis of a plane truss
+            </a>
+            <small>Implementación computacional en Jupyter Notebook del método de rigidez para el análisis matricial de una cercha plana.</small>
+            <small>Publicado en Zenodo con DOI: 10.5281/zenodo.20042213.</small>
+          </li>
+        </ul>
+      </article>
+
+    </section>
+
+    <section id="recursos" class="cards-grid two">
+
+      <article class="card">
+        <h2><span class="icon">▰</span>Libros</h2>
+
+        <ul>
+          <li><strong>Biografía del Dr. Jacinto González Vintimilla</strong></li>
+        </ul>
+
+        <small>Obra escrita por Anuar González y varios coautores, como homenaje biográfico y memoria familiar.</small>
+        <small>Edición privada de autor. [2021]</small>
+
+        <small>
+          <strong>Descripción breve:</strong> Este libro recoge la vida, trayectoria y legado del Dr. Jacinto González Vintimilla,
+          a partir de recuerdos, testimonios y documentos familiares.
+        </small>
+
+        <a class="ver-mas" href="./BIOGRAFIA_DR_GONZALEZ.pdf" target="_blank" rel="noopener noreferrer">Ver libro</a>
+        <a class="ver-mas" href="mailto:estudiante2000@hotmail.com?subject=Consulta%20sobre%20la%20biograf%C3%ADa">Solicitar información</a>
+      </article>
+
+      <article id="normatividad" class="wide-card">
+        <h2><span class="icon">⚖</span>Normatividad</h2>
+
+        <div class="normas-grid">
+          <div>
+            <div class="subtitulo">Normativa técnica</div>
+
+            <ul>
+              <li>
+                <a href="https://www.mit.gob.ec/norma-ecuatoriana-de-la-construccion/" target="_blank" rel="noopener noreferrer">
+                  Norma Ecuatoriana de la Construcción (NEC)
+                </a>
+                <small>Enlace oficial a los capítulos de la NEC.</small>
+              </li>
+
+              <li>
+                <a href="https://apps.normalizacion.gob.ec/descarga/index.php/buscar" target="_blank" rel="noopener noreferrer">
+                  Servicio Ecuatoriano de Normalización (INEN) — Normas técnicas ecuatorianas oficializadas
+                </a>
+                <small>Enlace oficial al catálogo y buscador de normas técnicas INEN.</small>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="subtitulo">Normativa legal</div>
+
+            <small>
+              Estas normas corresponden a documentos públicos y se los enlaza para referenciar su ubicación en las páginas oficiales correspondientes.
+            </small>
+
+            <ul>
+              <li>
+                <a href="https://portal.compraspublicas.gob.ec/sercop/anexos/" target="_blank" rel="noopener noreferrer">
+                  SERCOP — Ley Orgánica del Sistema Nacional de Contratación Pública, reglamento y normativa relacionada
+                </a>
+                <small>Enlace oficial del SERCOP a la normativa del Sistema Nacional de Contratación Pública.</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section id="areas" class="wide-card">
+      <h2><span class="icon">▥</span>Áreas</h2>
+
+      <div class="areas">
+        <div class="area-item"><span class="area-icon">▱</span><span>Ingeniería<br />Estructural</span></div>
+        <div class="area-item"><span class="area-icon">▣</span><span>Matemáticas<br />Aplicadas</span></div>
+        <div class="area-item"><span class="area-icon">⌁</span><span>Análisis<br />Numérico</span></div>
+        <div class="area-item"><span class="area-icon">☑</span><span>Auditoría<br />Técnica</span></div>
+        <div class="area-item"><span class="area-icon">⚖</span><span>Normatividad<br />y Legislación</span></div>
+        <div class="area-item"><span class="area-icon">📖</span><span>Divulgación<br />Académica</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contacto">
+    <div>© 2025 Anuar González. Todos los derechos reservados.</div>
+    <div class="footer-center">🎓 Conocimiento riguroso para una ingeniería responsable.</div>
+    <a class="volver-arriba" href="#inicio">↑ Volver arriba</a>
+  </footer>
+
+  <audio id="musica-fondo" src="./assets/chopin-ballade-no-1-g-minor-op-23.mp3" loop preload="auto"></audio>
+
+  <button id="boton-musica" type="button" onclick="
+    const audio = document.getElementById('musica-fondo');
+    const boton = this;
+    audio.volume = 0.30;
+
+    if (audio.paused) {
+      audio.play().then(() => {
         boton.textContent = '⏸ Pausar Música';
-      })
-      .catch((error) => {
+      }).catch((error) => {
         console.error('No se pudo reproducir el audio:', error);
         alert('No se pudo reproducir el audio. Revisa permisos del navegador o consola.');
       });
-  } else {
-    audio.pause();
-    boton.textContent = '🎹 Escuchar Música';
-  }
-">
-  🎹 Escuchar Música
-</button>
+    } else {
+      audio.pause();
+      boton.textContent = '🎹 Escuchar Música';
+    }
+  ">🎹 Música</button>
 
 </body>
 </html>
