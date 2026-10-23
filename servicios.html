@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revisión Técnica y Criterio Estructural Independiente | Anuar Science</title>
-  <meta name="description" content="Revisión técnica y criterio estructural independiente de planos y memorias de cálculo conforme a la NEC-15. Verificación numérica, análisis sísmico y capacitación técnica en Ecuador.">
+  <title>MATRIX_CALC · Revisión independiente de ingeniería estructural | Anuar Science</title>
+  <meta name="description" content="MATRIX_CALC: revisión independiente de ingeniería estructural. Verificación de modelos ETABS o SAP2000 en OpenSees, revisión de planos y memorias de cálculo, análisis sísmico, y verificación de muros y puentes. Inglés y español.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Revisión Técnica y Criterio Estructural Independiente | Anuar Science">
-  <meta property="og:description" content="Revisión técnica y criterio estructural independiente de planos y memorias de cálculo conforme a la NEC-15, en Ecuador.">
+  <meta property="og:title" content="MATRIX_CALC · Independent Structural Engineering Review">
+  <meta property="og:description" content="A second set of expert eyes before your project goes out the door. Una segunda mirada experta antes de que su proyecto salga a obra.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_EC">
   <meta property="og:url" content="https://anuar-science.github.io/servicios.html">
+  <meta property="og:image" content="https://anuar-science.github.io/assets/logo_matrix_calc.jpg">
   <link rel="alternate" hreflang="es" href="https://anuar-science.github.io/servicios.html">
   <link rel="alternate" hreflang="en" href="https://anuar-science.github.io/services.html">
   <link rel="alternate" hreflang="x-default" href="https://anuar-science.github.io/services.html">
@@ -18,108 +19,141 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Anuar Science",
-    "url": "https://anuar-science.github.io/",
-    "areaServed": "Ecuador",
+    "name": "MATRIX_CALC",
+    "url": "https://anuar-science.github.io/servicios.html",
+    "logo": "https://anuar-science.github.io/assets/logo_matrix_calc.jpg",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English", "Spanish"],
     "knowsAbout": [
-      "Revisión técnica independiente de planos y memorias de cálculo",
-      "Verificación numérica independiente del cálculo estructural",
+      "Verificación independiente de modelos estructurales",
+      "Revisión técnica de planos y memorias de cálculo",
       "Análisis sísmico",
-      "Diseño estructural de proyectos privados",
-      "Capacitación técnica en análisis estructural"
+      "Verificación de muros de contención y puentes",
+      "OpenSees"
     ]
   }
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #eef2f7;
-      font-family: "Times New Roman", Georgia, serif;
-      margin: 0;
-      padding: 24px 12px;
-      color: #222;
-      line-height: 1.6;
-    }
-    .tarjeta {
-      background-color: #ffffff;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 32px 40px;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-    }
-    h1 { font-size: 1.55em; color: #082a55; margin-top: 0; }
-    h2 {
-      font-size: 1.15em;
-      color: #082a55;
-      border-bottom: 1px solid #e2e6ea;
-      padding-bottom: 6px;
-      margin-top: 32px;
-    }
-    a { color: #082a55; }
-    .contacto {
-      margin-top: 36px;
-      padding-top: 16px;
-      border-top: 1px solid #e2e6ea;
-      font-size: 0.95em;
-    }
-    .retorno { font-size: 0.85em; margin-top: 24px; }
-    .idioma { text-align: right; font-size: 0.85em; margin: 0 0 12px; }
-    .alcance {
-      margin-top: 32px;
-      padding: 14px 18px;
-      background-color: #f6f8fb;
-      border-left: 3px solid #8b1735;
-      font-size: 0.92em;
+    :root { --vino: #7a1f3d; --azul: #082a55; --gris: #5d6673; --claro: #f4f1ee; --tg: #229ed9; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eef2f7; font-family: "Montserrat", Arial, sans-serif; color: var(--azul); line-height: 1.35; }
+    .tarjeta { max-width: 1000px; margin: 0 auto; background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+    .es { display: block; font-style: italic; font-weight: 500; color: var(--gris); }
+    .idioma { text-align: right; font-size: .85em; margin: 0; padding: 10px 18px 0; background: #f8f7f3; }
+    .idioma a { color: var(--azul); }
+    .cab { text-align: center; padding: 10px 20px 14px; background: #f8f7f3; }
+    .cab img { width: min(440px, 80%); height: auto; }
+    .titulo { background: var(--vino); color: #fff; text-align: center; padding: 16px 20px 18px; }
+    .titulo h1 { margin: 0; font-size: clamp(26px, 4.5vw, 46px); font-weight: 900; line-height: 1.08; }
+    .titulo .es { color: #f3dbe3; font-size: clamp(16px, 2.2vw, 23px); margin-top: 6px; }
+    .lema { text-align: center; margin: 22px 24px 0; font-size: clamp(18px, 2.6vw, 26px); font-weight: 700; }
+    .lema .es { font-size: .8em; margin-top: 4px; }
+    .serv { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 24px 0; }
+    .s { background: var(--claro); border-top: 6px solid var(--vino); border-radius: 12px; padding: 14px 18px 16px; }
+    .s h2 { margin: 0; font-size: 21px; font-weight: 800; line-height: 1.2; }
+    .s h2 .es { font-size: 16px; font-weight: 600; margin-top: 2px; }
+    .s p { margin: 8px 0 0; font-size: 15.5px; font-weight: 500; color: #24324a; }
+    .s p .es { font-size: 14px; margin-top: 4px; }
+    .pasos { margin: 24px 24px 0; border: 3px solid var(--azul); border-radius: 16px; padding: 14px 18px; }
+    .pasos .t { text-align: center; font-size: 21px; font-weight: 900; letter-spacing: 1px; }
+    .pasos .t .es { font-size: 15px; letter-spacing: 0; }
+    .fila { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 10px; }
+    .p { text-align: center; font-size: 17px; font-weight: 700; }
+    .p b { display: inline-block; width: 42px; height: 42px; line-height: 42px; border-radius: 50%; background: var(--vino);
+           color: #fff; font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+    .p .es { font-size: 14px; }
+    .ventajas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 26px; margin: 22px 40px 0; }
+    .ventajas div { font-size: 17px; font-weight: 700; padding-left: 28px; position: relative; }
+    .ventajas div::before { content: "✔"; color: var(--vino); position: absolute; left: 0; }
+    .ventajas .es { font-size: 14px; }
+    .ventajas a { color: var(--azul); }
+    .alcance { margin: 22px 24px 0; background: #eef2f7; border-left: 6px solid var(--azul); padding: 10px 18px;
+               font-size: 15px; font-weight: 600; }
+    .alcance .es { font-size: 13.5px; }
+    .contacto { text-align: center; padding: 26px 20px 10px; }
+    .contacto a.tg { display: inline-flex; align-items: center; gap: 14px; background: var(--tg); color: #fff; text-decoration: none;
+                     font-size: clamp(26px, 4vw, 38px); font-weight: 800; padding: 10px 38px; border-radius: 60px; }
+    .contacto a.tg svg { width: 44px; height: 44px; fill: #fff; }
+    .contacto .c { font-size: 17px; font-weight: 700; margin-top: 10px; }
+    .contacto .c .es { font-size: 15px; }
+    .upwork { text-align: center; font-size: 15px; padding: 6px 24px 0; }
+    .upwork a { color: var(--azul); font-weight: 700; }
+    .retorno { text-align: center; font-size: 14px; padding: 18px 0 26px; margin: 0; }
+    .retorno a { color: var(--azul); }
+    @media (max-width: 680px) {
+      .serv, .ventajas, .fila { grid-template-columns: 1fr; }
+      .serv, .pasos, .alcance { margin-left: 16px; margin-right: 16px; }
+      .ventajas { margin-left: 20px; margin-right: 16px; }
     }
   </style>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M03YEWCK2H">
-</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M03YEWCK2H"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-M03YEWCK2H');
 </script>
 
 </head>
 <body>
   <div class="tarjeta">
-
     <p class="idioma"><a href="services.html" hreflang="en" lang="en">English</a></p>
+    <div class="cab"><img src="assets/logo_matrix_calc.jpg" alt="MATRIX_CALC Structural Engineering" width="900" height="662"></div>
 
-    <h1>Revisión Técnica y Criterio Estructural Independiente — Servicios de Ingeniería Estructural</h1>
-
-    <h2>Revisión Técnica Independiente de Planos y Memorias de Cálculo</h2>
-    <p>Revisión técnica del diseño estructural, las memorias de cálculo y los planos de detallamiento elaborados por el cliente o por terceros, con verificación de conformidad respecto a la NEC-15 y a los criterios de los códigos ACI 318 y ASCE 7-16. El procedimiento incluye la comprobación de cargas, combinaciones, modelación, resultados de análisis y congruencia entre memoria y planos. El resultado es un documento de observaciones y criterio técnico, clasificadas y trazables, dirigido al cliente para que su profesional responsable las evalúe e incorpore, orientado a mitigar demoras, reprocesos y no conformidades durante la ejecución de la obra.</p>
-
-    <h2>Verificación Numérica Independiente del Cálculo Estructural</h2>
-    <p>Reproducción independiente de los resultados de un modelo estructural mediante el método de la rigidez y OpenSees, para contrastar desplazamientos, solicitaciones y reacciones obtenidos con el software comercial del cliente (ETABS, SAP2000 u otros). Se identifican discrepancias, se documenta su origen probable (hipótesis de modelación, condiciones de borde, cargas o combinaciones) y se emite criterio sobre su relevancia, con trazabilidad completa entre el modelo matemático y los resultados.</p>
-
-    <h2>Análisis Sísmico</h2>
-    <p>Determinación de la demanda sísmica y verificación del desempeño estructural conforme a la NEC-15 y al procedimiento de fuerza lateral equivalente del ASCE 7-16, incluyendo el cálculo del coeficiente sísmico, el cortante basal, la distribución vertical de fuerzas y los efectos de torsión. El análisis se desarrolla con herramientas de cálculo verificables (método de la rigidez y OpenSees), con reporte de derivas, solicitaciones y verificaciones de irregularidad, como soporte técnico para las decisiones del profesional responsable del proyecto.</p>
-
-    <h2>Diseño Estructural de Proyectos Privados</h2>
-    <p>Desarrollo del diseño estructural de edificaciones privadas de acero y hormigón armado, en conformidad con la NEC-15 y con referencia a los códigos ACI 318 y ASCE 7-16. El cálculo se sustenta en el método de la rigidez, con verificación numérica independiente mediante OpenSees. Los entregables comprenden la memoria de cálculo, los planos de detallamiento y los archivos de análisis, con justificación paso a paso de hipótesis, combinaciones de carga y verificaciones de resistencia y servicio.</p>
-
-    <h2>Capacitación Técnica para Equipos de Ingeniería</h2>
-    <p>Talleres prácticos para equipos de diseño y revisión sobre análisis matricial, verificación con OpenSees y aplicación de la NEC-15, construidos sobre las implementaciones computacionales y reportes técnicos publicados en este sitio.</p>
-
-    <div class="alcance">
-      <p><strong>Alcance de los servicios.</strong> Los servicios de revisión, verificación y análisis consisten en observaciones y criterio técnico dirigidos exclusivamente al cliente; la autoría, suscripción y responsabilidad de los documentos que el cliente elabore o presente corresponden a su profesional responsable. No se realizan gestiones, trámites ni presentaciones ante entidades públicas por cuenta de terceros.</p>
+    <div class="titulo">
+      <h1>INDEPENDENT STRUCTURAL<br>ENGINEERING REVIEW</h1>
+      <span class="es">Revisión independiente de ingeniería estructural</span>
     </div>
+
+    <div class="lema">A second set of expert eyes before your project goes out the door.
+      <span class="es">Una segunda mirada experta antes de que su proyecto salga a obra.</span></div>
+
+    <div class="serv">
+      <div class="s"><h2>Independent model verification<span class="es">Verificación independiente de modelos</span></h2>
+        <p>Your ETABS or SAP2000 model rebuilt in OpenSees: displacements, forces and reactions compared, with discrepancy tables.
+          <span class="es">Su modelo de ETABS o SAP2000 reconstruido en OpenSees: desplazamientos, fuerzas y reacciones comparados, con tablas de discrepancias.</span></p></div>
+      <div class="s"><h2>Drawings &amp; calculation review<span class="es">Revisión de planos y memorias de cálculo</span></h2>
+        <p>Loads, combinations, analysis and detailing checked against ACI 318, ASCE 7, Eurocode or NEC-15.
+          <span class="es">Cargas, combinaciones, análisis y detallamiento revisados según ACI 318, ASCE 7, Eurocódigo o NEC-15.</span></p></div>
+      <div class="s"><h2>Seismic analysis<span class="es">Análisis sísmico</span></h2>
+        <p>Base shear, force distribution, story drifts, torsion and irregularity checks.
+          <span class="es">Cortante basal, distribución de fuerzas, derivas de piso, torsión y verificación de irregularidades.</span></p></div>
+      <div class="s"><h2>Retaining walls &amp; bridges<span class="es">Muros de contención y puentes</span></h2>
+        <p>Verification to Eurocode 7/2, ACI 318 and AASHTO LRFD.
+          <span class="es">Verificación según Eurocódigo 7/2, ACI 318 y AASHTO LRFD.</span></p></div>
+    </div>
+
+    <div class="pasos">
+      <div class="t">HOW IT WORKS <span class="es">Cómo funciona</span></div>
+      <div class="fila">
+        <div class="p"><b>1</b><br>Send your model and drawings<span class="es">Envíe su modelo y planos</span></div>
+        <div class="p"><b>2</b><br>Fixed price and scope, agreed first<span class="es">Precio cerrado y alcance, acordados antes</span></div>
+        <div class="p"><b>3</b><br>Report with findings and technical judgment<span class="es">Informe con hallazgos y criterio técnico</span></div>
+      </div>
+    </div>
+
+    <div class="ventajas">
+      <div>Written communication in English or Spanish<span class="es">Comunicación escrita en inglés o español</span></div>
+      <div>GMT-5: same working day as US &amp; Canada<span class="es">GMT-5: misma jornada que EE. UU. y Canadá</span></div>
+      <div>Editable deliverables: OpenSees, DXF, Word, Excel, PDF<span class="es">Entregables editables: OpenSees, DXF, Word, Excel, PDF</span></div>
+      <div>Published, reproducible method (<a href="https://doi.org/10.5281/zenodo.20042213" target="_blank" rel="noopener">DOI 10.5281/zenodo.20042213</a>)<span class="es">Método publicado y reproducible</span></div>
+    </div>
+
+    <div class="alcance">Your engineer of record keeps authorship, signature and responsibility for the project. No filings or submissions are made before public authorities on behalf of third parties.
+      <span class="es">Su ingeniero responsable conserva la autoría, la firma y la responsabilidad del proyecto. No se realizan gestiones, trámites ni presentaciones ante entidades públicas por cuenta de terceros.</span></div>
 
     <div class="contacto">
-      <p><strong>Consultas técnicas y solicitudes de servicio:</strong><br>
-      A través de Telegram: <a href="https://t.me/MATRIX_CAL" target="_blank" rel="noopener">@MATRIX_CAL</a></p>
-      <p><strong>Contratación por Upwork:</strong> paquetes de verificación a precio cerrado y con pago protegido —
-      <a href="https://www.upwork.com/services/product/design-an-independent-verification-of-your-etabs-or-sap2000-model-in-opensees-2109059753313518690" target="_blank" rel="noopener">Verificación independiente de modelos ETABS o SAP2000 en OpenSees</a></p>
+      <a class="tg" href="https://t.me/MATRIX_CAL" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.8 15.6 9.6 19c.4 0 .6-.2.8-.4l1.9-1.8 4 2.9c.7.4 1.3.2 1.5-.7l2.7-12.6c.2-1.1-.4-1.5-1.1-1.2L3.6 10.8c-1.1.4-1.1 1-.2 1.3l4 1.2 9.3-5.9c.4-.3.8-.1.5.2z"/></svg> @MATRIX_CAL</a>
+      <div class="c">Tap to request a review on Telegram<span class="es">Toca para solicitar una revisión por Telegram</span></div>
     </div>
 
-    <p class="retorno"><a href="index.html">&larr; Volver a la página principal</a></p>
+    <p class="upwork">Hire through Upwork / Contratación por Upwork:
+      <a href="https://www.upwork.com/services/product/design-an-independent-verification-of-your-etabs-or-sap2000-model-in-opensees-2109059753313518690" target="_blank" rel="noopener">fixed-price verification packages · paquetes a precio cerrado</a></p>
 
+    <p class="retorno"><a href="index.html">&larr; Volver a la página principal / Back to home page</a></p>
   </div>
 </body>
 </html>
