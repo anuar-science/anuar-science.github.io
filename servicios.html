@@ -69,6 +69,8 @@
     .alcance { margin: 22px 24px 0; background: #eef2f7; border-left: 6px solid var(--azul); padding: 10px 18px;
                font-size: 15px; font-weight: 600; }
     .alcance .es { font-size: 13.5px; }
+    .dif { margin: 16px 24px 0; text-align: center; font-size: 17px; font-weight: 700; color: var(--vino); }
+    .dif .es { font-size: 14px; margin-top: 3px; }
     .extra { margin: 18px 24px 0; background: #f7eef1; border-left: 6px solid var(--vino); padding: 10px 18px;
              font-size: 15px; font-weight: 700; }
     .extra .es { font-size: 13.5px; }
@@ -84,7 +86,7 @@
     .retorno a { color: var(--azul); }
     @media (max-width: 680px) {
       .serv, .ventajas, .fila { grid-template-columns: 1fr; }
-      .serv, .pasos, .alcance, .extra { margin-left: 16px; margin-right: 16px; }
+      .serv, .pasos, .alcance, .extra, .dif { margin-left: 16px; margin-right: 16px; }
       .ventajas { margin-left: 20px; margin-right: 16px; }
     }
   </style>
@@ -110,6 +112,9 @@
 
     <div class="lema">A second, independent look before your project goes out the door.
       <span class="es">Una segunda mirada independiente antes de que su proyecto salga a obra.</span></div>
+
+    <div class="dif">AI can draft a check. An engineer has to run it, verify it and answer for it: every number in my report comes from a second, independent model actually run in OpenSees.
+      <span class="es">La IA puede sugerir una revisión; un ingeniero tiene que ejecutarla, verificarla y responder por ella: cada cifra de mi informe sale de un segundo modelo independiente, realmente corrido en OpenSees.</span></div>
 
     <div class="serv">
       <div class="s"><h2>Independent model verification<span class="es">Verificación independiente de modelos</span></h2>
